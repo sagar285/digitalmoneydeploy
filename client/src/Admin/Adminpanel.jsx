@@ -1,6 +1,5 @@
 import axios, { all } from 'axios';
 import React,{useState,useEffect} from 'react'
-import { baseurl } from '../pages/Api';
 import { Link } from 'react-router-dom';
 
 const Adminpanel = () => {
@@ -10,25 +9,25 @@ const Adminpanel = () => {
  const [activeuser,setactiveuser]=useState(0);
  const [totalamount,settotalamount]=useState(0);
   const getallusers=async()=>{
-    const {data}=await axios.get(`${baseurl}/alluser`);
+    const {data}=await axios.get(`/alluser`);
     settotalusers(data.length)
   }
 
   const allrechargerequest =async()=>{
-    const {data}=await axios.get(`${baseurl}/rechargerequest`);
+    const {data}=await axios.get(`/rechargerequest`);
     setrechargerequest(data.length);
 }
 const adminwithdrawrequest=async()=>{
-  const res=await axios.get(`${baseurl}/witdrawrequest`);
+  const res=await axios.get(`/witdrawrequest`);
   setwithdrawrequest(res.data.length);
 }
 
 const activeusers=async()=>{
-  const {data}=await axios.get(`${baseurl}/activeuser`)
+  const {data}=await axios.get(`/activeuser`)
   setactiveuser(data.length);
 }
 const totalamountinvested=async()=>{
-  const {data}=await axios.get(`${baseurl}/totalamountinvested`)
+  const {data}=await axios.get(`/totalamountinvested`)
   console.log(data);
   settotalamount(data.data);
 }

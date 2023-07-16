@@ -1,7 +1,6 @@
 import React, { useEffect,useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import {baseurl} from "../pages/Api"
 import "../styles/desktop2.css"
 
 
@@ -29,7 +28,7 @@ const Desktop2 = () => {
   // }
 
   const availableprojects =async()=>{
-    const res =await axios.get(`${baseurl}/getproduct`);
+    const res =await axios.get(`/getproduct`);
     let a=[];
    if(res){
       if(res.data.length<=3){
@@ -89,9 +88,6 @@ useEffect(()=>{
         <div className="col-sm-12 col-md-6 col-lg-3 col-12">
           <div
             className="infoCards btn card text-bg-light mb-3 mx-auto  p-0"
-            onClick={(event) => {
-              window.location.to = "desktop-13-todayEarning.html";
-            }}
             style={{ maxWidth: "18rem" }}
           >
             <div className="card-body">
@@ -108,7 +104,6 @@ useEffect(()=>{
         <div className="col-sm-12 col-md-6 col-lg-3 col-12">
           <div
             className="infoCards btn card text-bg-light mb-3 mx-auto p-0"
-           
             style={{ maxWidth: "18rem" }}
           >
             <div className="card-body">

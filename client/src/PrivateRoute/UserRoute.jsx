@@ -2,7 +2,6 @@ import React, { useState,useEffect } from 'react'
 import {Outlet} from "react-router-dom"
 import { useAuth } from '../component/Usercontext'
 import axios from 'axios'
-import { baseurl } from '../pages/Api'
 
 const UserRoute = () => {
     const [ok,setok] =useState(false);
@@ -10,7 +9,7 @@ const UserRoute = () => {
 
     useEffect(()=>{
         const authcheck =async()=>{
-            const res=await axios.get(`${baseurl}/loginverify`);
+            const res=await axios.get(`/loginverify`);
             console.log("function ho gya call")
             if(res.data.ok){
                 setok(true);

@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { baseurl } from "../pages/Api";
 
 const User = () => {
   const [name, setname] = useState("");
@@ -14,7 +13,7 @@ const User = () => {
   console.log(id);
 
   const getuser = async () => {
-    const { data } = await axios.get(`${baseurl}/user/${id}`);
+    const { data } = await axios.get(`/user/${id}`);
     setname(data.user);
     setuniqueid(data.refralid);
     setteam(data.usertem);

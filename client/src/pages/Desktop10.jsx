@@ -2,7 +2,6 @@ import React,{useState} from "react";
 import "../styles/desktop10.css";
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
-import { baseurl } from "./Api";
 import toast, { Toaster } from "react-hot-toast";
 import { useAuth } from "../component/Usercontext";
 
@@ -18,7 +17,7 @@ const Desktop10 = () => {
     if(username=="" || password==""){
       return toast.error("please filled all field");
     }
-     const res =await axios.post(`${baseurl}/login`,{username,password});
+     const res =await axios.post(`/login`,{username,password});
      if(res.status===200){
       setuserauth({...userauth,user:res.data.usercheck,token:res.data.token});
       localStorage.setItem("auth",JSON.stringify(res.data));

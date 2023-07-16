@@ -2,14 +2,13 @@ import { useEffect, useState } from "react"
 import "../styles/main.css"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { baseurl } from './Api'
 
 // home page
 
 const Main = () => {
   const [project,setproject]=useState([]);
   const availableprojects =async()=>{
-    const res =await axios.get(`${baseurl}/getproduct`);
+    const res =await axios.get(`/getproduct`);
     let a=[];
    if(res){
       if(res.data.length<=3){

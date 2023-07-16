@@ -1,8 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { baseurl } from './Api'
-import { useAuth } from '../component/Usercontext'
 
 
 // all available products which add by admin
@@ -11,11 +9,10 @@ const Desktop5 = () => {
   const [walletamount,setwalletamount]=useState()
   const [rechargeamount,setrechargeamount]=useState();
   const [project,setproject]=useState([]);
-  const [userauth]=useAuth();
 
 
   const availableprojects =async()=>{
-      const res =await axios.get(`${baseurl}/getproduct`);
+      const res =await axios.get(`/getproduct`);
      if(res){
       setproject(res.data);
      }
@@ -23,12 +20,12 @@ const Desktop5 = () => {
  
 
   const walletamountvalue =async()=>{
-    const {data}=await axios.get(`${baseurl}/walletamount`);
+    const {data}=await axios.get(`/walletamount`);
     setwalletamount(data.walletamountvalue);
     localStorage.setItem("wallet",data.walletamountvalue)
   }
   const rechargeamountvalue =async()=>{
-    const {data}=await axios.get(`${baseurl}/rechargeamount`);
+    const {data}=await axios.get(`/rechargeamount`);
     setrechargeamount(data.rechargeamountvalue)
     localStorage.setItem("recharge",data.rechargeamountvalue);
   }
@@ -47,7 +44,7 @@ useEffect(()=>{
   //   setrechargeamount(data.rechargeamountvalue)
   // }
   const rechargeupdate =async(amount)=>{
-    const res =await axios.put(`${baseurl}/rechargeupdate`,{amount});
+    const res =await axios.put(`/rechargeupdate`,{amount});
     console.log(res);
    if(res.status==200){
      rechargeamountvalue();
@@ -58,7 +55,7 @@ useEffect(()=>{
   const buyproduct =async(p)=>{
     const total=walletamount+rechargeamount;
      if(total>p.price){
-      const res=await axios.post(`${baseurl}/userorder/${p._id}`);
+      const res=await axios.post(`/userorder/${p._id}`);
       if(res.data.buyerid){
         return alert("this product already pruchased")
       }

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { baseurl } from '../pages/Api';
 import {format} from "date-fns"
 
 const Reachargehistory = () => {
@@ -8,7 +7,7 @@ const Reachargehistory = () => {
   const [withdrawhistory,setwithdrawhistory]=useState([])
 
 const adminwithdraw=async()=>{
-  const res=await axios.get(`${baseurl}/adminrecharge`);
+  const res=await axios.get(`/adminrecharge`);
   console.log(res)
   setwithdrawhistory(res.data);
 }

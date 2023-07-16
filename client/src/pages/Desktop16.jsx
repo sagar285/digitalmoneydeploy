@@ -5,7 +5,6 @@ import { auth } from "./firebase.config";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import toast, { Toaster } from "react-hot-toast";
-import { baseurl } from "./Api";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import axios from "axios";
 // user registration page
@@ -28,7 +27,7 @@ const Desktop16 = () => {
         return toast.error('password and confirm passwod must be same');
        }
        else{
-        const res= await axios.post(`${baseurl}/register`,{
+        const res= await axios.post(`/register`,{
           username,password,confirmpassword,phone,sponsorid
          })
          if(res.status===200){

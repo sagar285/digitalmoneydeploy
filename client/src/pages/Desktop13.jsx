@@ -1,20 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import axios from "axios"
-import {baseurl} from "../pages/Api"
+
 
 // daily earning
 
 const Desktop13 = () => {
 
-  const userearning =async()=>{
-    const res=await axios.get(`${baseurl}/userincome`);
-    console.log(res);
-  }
-
-  useEffect(()=>{
-   userearning()
-  },[])
+ 
 
 
 

@@ -1,11 +1,10 @@
 import axios from 'axios';
 import React,{useState,useEffect} from 'react'
-import { baseurl } from '../pages/Api';
 
 const Allusers = () => {
      const [alluser,setalluser]=useState([]);
     const getallusers=async()=>{
-        const {data}=await axios.get(`${baseurl}/alluser`);
+        const {data}=await axios.get(`/alluser`);
         setalluser(data);
       }
     

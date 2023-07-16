@@ -1,12 +1,11 @@
 import axios from 'axios'
 import React ,{useEffect, useState}from 'react'
-import { baseurl } from '../pages/Api'
 import { Link } from 'react-router-dom';
 
 const ActiveUsers = () => {
   const [activeuser,setactiveusers]=useState([]);
   const activeusers=async()=>{
-    const {data}=await axios.get(`${baseurl}/activeuser`)
+    const {data}=await axios.get(`/activeuser`)
     setactiveusers(data);
   }
 

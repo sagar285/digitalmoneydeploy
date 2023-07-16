@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../component/Usercontext'
 import axios from 'axios';
-import { baseurl } from '../pages/Api';
 
 
 const Adminprofile = () => {
@@ -12,7 +11,7 @@ const Adminprofile = () => {
   const [qrcode,setqrcode]=useState({});
 
   const getadminupi =async()=>{
-    const res=await axios.get(`${baseurl}/getadminupi`);
+    const res=await axios.get(`/getadminupi`);
     if(res.status===200){
       setadminupi(res.data);
     }
@@ -21,7 +20,7 @@ const Adminprofile = () => {
     }
   }
   const getadminqrcode =async()=>{
-    const res=await axios.get(`${baseurl}/getadminqrcode`);
+    const res=await axios.get(`/getadminqrcode`);
     if(res.status===200){
       setqrcode(res.data)
     }
@@ -31,7 +30,7 @@ const Adminprofile = () => {
   }
 
   const adminupi=async()=>{
-    const res= await axios.put(`${baseurl}/adminupi`,{upi});
+    const res= await axios.put(`/adminupi`,{upi});
     if(res.status===200){
       getadminupi();
       setupi('');
@@ -43,7 +42,7 @@ const Adminprofile = () => {
 
 
   const adminqrcode =async()=>{
-    const res=await axios.put(`${baseurl}/adminqrcode`,{img});
+    const res=await axios.put(`/adminqrcode`,{img});
     if(res.status==200){
       getadminqrcode();
     }

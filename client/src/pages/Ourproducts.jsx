@@ -2,7 +2,6 @@
 import "../styles/ourproducts.css"
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { baseurl } from './Api'
 import { useEffect, useState } from "react"
 
 // products page
@@ -10,7 +9,7 @@ const Ourproducts = () => {
   const [project,setproject]=useState([]);
 
   const availableprojects =async()=>{
-    const res =await axios.get(`${baseurl}/getproduct`);
+    const res =await axios.get(`/getproduct`);
    if(res){
     setproject(res.data);
    }

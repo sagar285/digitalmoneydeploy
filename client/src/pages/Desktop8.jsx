@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { baseurl } from "./Api";
 // user see their network on basis of referal id
 // other users of app but thier coupon code must belon to this user
 
@@ -11,17 +10,17 @@ const [leveltwo,setleveltwo]=useState([])
 const [levelthree,setlevelthree]=useState([])
   
   const getlevelone = async()=>{
-    const {data}=await axios.get(`${baseurl}/getlevelone`)
+    const {data}=await axios.get(`/getlevelone`)
     console.log(data);
     setlevelone(data.user1arrya)
   }
   const getleveltwo = async()=>{
-    const {data}=await axios.get(`${baseurl}/getleveltwo`)
+    const {data}=await axios.get(`/getleveltwo`)
    
     setleveltwo(data.level2user)
   }
   const getlevelthree = async()=>{
-    const {data}=await axios.get(`${baseurl}/getlevelthree`)
+    const {data}=await axios.get(`/getlevelthree`)
     setlevelthree(data.level3user);
 
   }

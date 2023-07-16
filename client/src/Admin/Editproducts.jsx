@@ -1,18 +1,17 @@
 import axios from 'axios'
 import React,{useEffect, useState} from 'react'
-import { baseurl } from '../pages/Api'
 import { Link } from 'react-router-dom'
 
 const Editproducts = () => {
   const [products,setproducts]=useState([])
 
   const getproducts =async()=>{
-    const {data} =await axios.get(`${baseurl}/getproduct`);
+    const {data} =await axios.get(`/getproduct`);
     setproducts(data);
   }
 
   const deleteproduct =async(id)=>{
-    const result =await axios.delete(`${baseurl}/deleteproduct/${id}`)
+    const result =await axios.delete(`/deleteproduct/${id}`)
     console.log(result);
     getproducts();
   }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { baseurl } from "../pages/Api";
 import axios from "axios";
 
 const UpdateProduct = () => {
@@ -13,7 +12,7 @@ const UpdateProduct = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const singleproduct = async () => {
-    const { data } = await axios.get(`${baseurl}/singleproduct/${id}`);
+    const { data } = await axios.get(`/singleproduct/${id}`);
     setname(data.name);
     setprice(data.price);
     setdailyincome(data.dailyincome);
@@ -24,7 +23,7 @@ const UpdateProduct = () => {
 
   const updateproductdetail=async(e)=>{
     e.preventDefault();
-    const res= await axios.put(`${baseurl}/updateproduct/${id}`,{name,price,dailyincome,noOfDays,referalBonus,reward});
+    const res= await axios.put(`/updateproduct/${id}`,{name,price,dailyincome,noOfDays,referalBonus,reward});
     if(res.status===200){
       navigate("/admin/editproducts")
     }

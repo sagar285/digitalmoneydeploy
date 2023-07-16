@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { baseurl } from '../pages/Api'
 import { format } from 'date-fns';
 
 const Withdrawrequest = () => {
@@ -9,12 +8,12 @@ const Withdrawrequest = () => {
    
 
   const adminwithdrawrequest=async()=>{
-    const res=await axios.get(`${baseurl}/witdrawrequest`);
+    const res=await axios.get(`/witdrawrequest`);
     setwithdrawrequest(res.data);
   }
   const statuschange=async(id)=>{
     const status =1;
-    const res=await axios.put(`${baseurl}/withdrawstatus/${id}`,{status});
+    const res=await axios.put(`/withdrawstatus/${id}`,{status});
     if(res.status==200){
       adminwithdrawrequest();
     }

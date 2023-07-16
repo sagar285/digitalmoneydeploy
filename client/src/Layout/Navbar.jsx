@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
          
          {
-          userauth &&userauth?.user?.role==1 ?(
+          userauth && userauth?.user?.role==1 ?(
             <ul className="navbar-nav">
             <li className="nav-item">
               <Link className="nav-link link" aria-current="page" to="/admin/adminpanel">Dashboard</Link>
@@ -78,7 +78,7 @@ const Navbar = () => {
          }    
          {
            
-           userauth?.user ? (
+           userauth?.user && userauth?.user?.role!==1 ? (
             <>
             <ul className="navbar-nav">
             <li className="nav-item">

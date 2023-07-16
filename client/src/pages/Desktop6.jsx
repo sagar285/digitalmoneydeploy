@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useState,useEffect } from "react";
 import { Toaster,toast } from "react-hot-toast";
 import { Link,useNavigate } from "react-router-dom";
-import { baseurl } from "./Api";
 
 
 // user account information
@@ -14,7 +13,7 @@ const Desktop6 = () => {
   const  navigate =useNavigate();
 
   const bankdetail =async()=>{
-       const res= await axios.get(`${baseurl}/getpayment`)
+       const res= await axios.get(`/getpayment`)
        if(res.data){
         setname(res.data.Name);
         setAccountNumber(res.data.AccountNumber);
@@ -28,7 +27,7 @@ const Desktop6 = () => {
 
   const userpaymentdetail=async(e)=>{
         e.preventDefault();
-        const res=await axios.post(`${baseurl}/addpayment`,{Name,AccountNumber,IfscCode})
+        const res=await axios.post(`/addpayment`,{Name,AccountNumber,IfscCode})
        if(res.status===200){
         navigate("/auth/userprofile")
        }

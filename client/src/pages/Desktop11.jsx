@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../component/Usercontext";
-import { baseurl } from "./Api";
 import axios from "axios";
 
 
@@ -16,7 +15,7 @@ const Desktop11 = () => {
   const [IfscCode,setIfscCode]=useState('')
 
   const bankdetail =async()=>{
-       const res= await axios.get(`${baseurl}/getpayment`)
+       const res= await axios.get(`/getpayment`)
        if(res.data){
         setname(res.data.Name);
         setAccountNumber(res.data.AccountNumber);

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { baseurl } from '../pages/Api'
 import axios from 'axios';
 
 const Withdrawhisotry = () => {
@@ -7,7 +6,7 @@ const Withdrawhisotry = () => {
 const [withdrawhistory,setwithdrawhistory]=useState([])
 
 const adminwithdraw=async()=>{
-  const res=await axios.get(`${baseurl}/adminwithdraw`);
+  const res=await axios.get(`/adminwithdraw`);
   setwithdrawhistory(res.data);
 }
 console.log(withdrawhistory);

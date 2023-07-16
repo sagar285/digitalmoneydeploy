@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { baseurl } from "./Api";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuth } from "../component/Usercontext";
@@ -24,11 +23,11 @@ const Desktop3 = () => {
   const [qrcode,setqrcode]=useState({});
 
   const walletamountvalue =async()=>{
-    const {data}=await axios.get(`${baseurl}/walletamount`);
+    const {data}=await axios.get(`/walletamount`);
     setwalletamount(data.walletamountvalue);
   }
   const rechargeamountvalue =async()=>{
-    const {data}=await axios.get(`${baseurl}/rechargeamount`);
+    const {data}=await axios.get(`/rechargeamount`);
     setrechargeamount(data.rechargeamountvalue);
   }
 
@@ -41,7 +40,7 @@ useEffect(()=>{
  
 
   const getadminupi =async()=>{
-    const res=await axios.get(`${baseurl}/getuserupi`);
+    const res=await axios.get(`/getuserupi`);
     if(res.status===200){
       setadminupi(res.data);
     }
@@ -50,7 +49,7 @@ useEffect(()=>{
     }
   }
   const getadminqrcode =async()=>{
-    const res=await axios.get(`${baseurl}/getuserqrcode`);
+    const res=await axios.get(`/getuserqrcode`);
     if(res.status===200){
       setqrcode(res.data)
     }
@@ -69,7 +68,7 @@ useEffect(()=>{
   const navigate=useNavigate();
    const userrecharge =async(e)=>{
     e.preventDefault();
-    const res=await axios.post(`${baseurl}/recharge`,{amount,utrid});
+    const res=await axios.post(`/recharge`,{amount,utrid});
     if(res.status==200){
         navigate("/");
     }

@@ -1,7 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import { useAuth } from '../component/Usercontext'
 import axios from 'axios';
-import { baseurl } from './Api';
 import { format } from 'date-fns';
 
 const UserWithdrawhisotry = () => {
@@ -11,7 +10,7 @@ const UserWithdrawhisotry = () => {
     const [IfscCode,setIfscCode]=useState('')
     const[withdrawhistory,setwithdrawhistory]=useState([]);
     const bankdetail =async()=>{
-        const res= await axios.get(`${baseurl}/getpayment`)
+        const res= await axios.get(`/getpayment`)
         if(res.data){
          setname(res.data.Name);
          setAccountNumber(res.data.AccountNumber);
@@ -20,7 +19,7 @@ const UserWithdrawhisotry = () => {
    }
 
    const userswithdrawhistory=async()=>{
-    const res=await axios.get(`${baseurl}/userwithdrawhistory`);
+    const res=await axios.get(`/userwithdrawhistory`);
     setwithdrawhistory(res.data);
    }
 

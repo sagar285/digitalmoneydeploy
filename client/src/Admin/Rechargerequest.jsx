@@ -1,23 +1,20 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { baseurl } from '../pages/Api'
 import {format} from "date-fns"
 
 const Rechargerequest = () => {
     const [usereequest,setuserrequest]=useState([]);
 
-
-
     const statuschange=async(id)=>{
       const status =1;
-      const res=await axios.put(`${baseurl}/rechargestatus/${id}`,{status});
+      const res=await axios.put(`/rechargestatus/${id}`,{status});
       if(res.status==200){
         allrechargerequest();
       }
    }
 
   const allrechargerequest =async()=>{
-       const {data}=await axios.get(`${baseurl}/rechargerequest`);
+       const {data}=await axios.get(`/rechargerequest`);
        setuserrequest(data);
   }
 

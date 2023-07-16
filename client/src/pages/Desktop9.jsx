@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { baseurl } from "./Api";
 
 // live project
 //
@@ -10,13 +9,13 @@ const Desktop9 = () => {
   const [disable, setdisable] = useState(false);
   const [projects, setporject] = useState([]);
   const liveprojects = async () => {
-    const res = await axios.get(`${baseurl}/liveprojects`);
+    const res = await axios.get(`/liveprojects`);
     setporject(res.data);
   };
 
   const addwalletamount = async (price, e) => {
     e.preventDefault();
-    const res = await axios.put(`${baseurl}/addwallet/${price}`);
+    const res = await axios.put(`/addwallet/${price}`);
     console.log(res);
     setdisable(true);
   };

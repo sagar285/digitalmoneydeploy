@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
-import { baseurl } from "./Api";
 
 // user can withdraw payment request to admin
 // show walletamout 
@@ -14,7 +13,7 @@ const [walletamount,setwalletamount]=useState(0);
 const navigate =useNavigate();
 
 const walletamountvalue =async()=>{
-  const {data}=await axios.get(`${baseurl}/walletamount`);
+  const {data}=await axios.get(`/walletamount`);
   setwalletamount(data.walletamountvalue);
 }
   const withdrawrequest =async()=>{
@@ -25,7 +24,7 @@ const walletamountvalue =async()=>{
       return alert("this amount higher than wallet amount");
     }
     else{
-      const res= await axios.post(`${baseurl}/userwithdraw`,{amount});
+      const res= await axios.post(`/userwithdraw`,{amount});
       console.log(res);
       if(res.status===200){
         walletamountvalue();

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { baseurl } from "../pages/Api";
 import axios from "axios";
 
 const Addproduct = () => {
@@ -16,7 +15,7 @@ const Addproduct = () => {
 
  const addproduct =async(e)=>{
   e.preventDefault();
-  const res =await axios.post(`${baseurl}/addproduct`,{
+  const res =await axios.post(`/addproduct`,{
     name,price,noOfDays,img,dailyincome,referalBonus,reward
   })
   if(res.status==200){
