@@ -1,0 +1,32 @@
+
+      .nav-link {
+        color: rgb(252, 250, 250);
+        margin: 0px 5px;
+      }
+      .nav-link:hover {
+        color: rgb(156, 159, 159);
+      }
+      body {
+        /* background: url(../images/background.avif) no-repeat center center/cover; */
+        background: linear-gradient(140deg, rgb(79, 118, 177), rgb(21, 27, 92), rgb(79, 118, 177), rgb(21, 27, 92));
+        height: 100vh;
+      }
+      .navbar img {
+        height: 35px;
+        border-radius: 100px;
+      }
+      .navbar img:hover{
+        opacity: 0.6;
+      }
+      .mainImage{
+        height: 160px;
+      }
+      .products img{
+        height: 200px;
+      }
+      .footer .nav-link Link{
+        color: black;
+      }
+      .infoCards:hover{
+        opacity: 0.8;
+      }

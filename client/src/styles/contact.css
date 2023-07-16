@@ -1,0 +1,19 @@
+
+.mainImage{
+  height: 150px;
+  border-radius: 100px;
+}
+.nav-link {
+  color: white;
+  margin: 0px 5px;
+}
+.nav-link:hover {
+  color: rgb(156, 159, 159);
+}
+.navbar img {
+  height: 35px;
+  border-radius: 100px;
+}
+.navbar img:hover {
+  opacity: 0.6;
+}

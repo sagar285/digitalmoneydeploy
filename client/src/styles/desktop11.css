@@ -1,0 +1,25 @@
+
+    .nav-link {
+      color: white;
+      margin: 0px 5px;
+    }
+    body {
+      /* background: url(../images/background.avif) no-repeat center center/cover; */
+      background: linear-gradient(140deg, rgb(79, 118, 177), rgb(21, 27, 92), rgb(79, 118, 177), rgb(21, 27, 92));
+      height: 195vh;
+    }
+    .navbar img {
+      height: 35px;
+      border-radius: 100px;
+    }
+    .mainImage{
+      height: 150px;
+      border-radius: 100px;
+    }
+    .mainImage:hover{
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    .back img:hover{
+      opacity: 0.6;
+    }
